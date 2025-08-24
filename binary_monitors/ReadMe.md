@@ -1,0 +1,1 @@
+This contains some code from when I studied two binary monitors (i.e., monitors which return zero or one). We abandoned this direction later, but I figured I'd keep the code here in case people are interested. There's a nice webapp that o1 coded from way back. 
