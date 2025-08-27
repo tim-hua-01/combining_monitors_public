@@ -1,6 +1,6 @@
 #Code for combining probe and black box monitor results, intended for alignment forum post
 stop('stop in case i accidentally run the whole script')
-setwd("~/Library/CloudStorage/OneDrive-Personal/Coding/MARS/combing_monitors_private")
+setwd("~/Documents/GitHub/combing_monitors_public")
 
 if (!require(tidyverse)) install.packages("tidyverse"); library(tidyverse)
 if (!require(magrittr)) install.packages("magrittr"); library(magrittr)
@@ -100,6 +100,17 @@ ggplot(training_scores,
        x = "Black box monitor", y = "Probe monitor", color = NULL) + 
   scale_color_manual(values = c("#2ECC71","#C0392B")) +
   myTheme + theme(legend.position = 'bottom')
+
+
+ggplot(training_scores, 
+       aes(x = alpha_score, y = beta_score, color = letype)) +
+  geom_point(position = position_jitter(0.05,0.05), alpha = 0.5) +
+  labs(title = "Scatter plot of monitor scores on training data",
+       subtitle = "Random noise added in to make it easier to read (jittered)",
+       x = "Black box monitor", y = "Probe monitor", color = NULL) + 
+  scale_color_manual(values = c("#2ECC71","#C0392B")) +
+  myTheme + theme(legend.position = 'bottom') + 
+  coord_cartesian(ylim = c(-2,3))
 
 
 comb_graph <- read_csv('experiments/probe_comb_exp.csv') %>% 

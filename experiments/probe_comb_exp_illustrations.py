@@ -202,6 +202,68 @@ plot_decision_regions_custom(fullnp, title = "Combine monitor scores using likel
 
 plot_decision_regions_custom(fullnp, title = "Calculating LLR using one or two monitors", save_path = "calculate_llr.png", show_audit_threshold = False)
 
+
+#%%
+# Playign with different kernel widths
+
+fullnp_bd35 = FullNPOneRegion(bandwidth_2d = 0.35, bandwidth_1d = 0.35)
+fullnp_bd35.fit_method(
+    in_sample_alpha_benign = in_sample_alpha_benign,
+    in_sample_alpha_attack=in_sample_alpha_attack,
+    in_sample_beta_benign = in_sample_beta_benign,
+    in_sample_beta_attack=in_sample_beta_attack, Y = 1, c_m = 1, c_n = 1e-6, c_a = 20, verbose=True
+)
+
+plot_decision_regions_custom(fullnp_bd35, title = "Kernel width = 0.35")
+
+#%%
+
+fullnp_bd4 = FullNPOneRegion(bandwidth_2d = 0.4, bandwidth_1d = 0.4)
+fullnp_bd4.fit_method(
+    in_sample_alpha_benign = in_sample_alpha_benign,
+    in_sample_alpha_attack=in_sample_alpha_attack,
+    in_sample_beta_benign = in_sample_beta_benign,
+    in_sample_beta_attack=in_sample_beta_attack, Y = 1, c_m = 1, c_n = 1e-6, c_a = 20, verbose=True
+)
+
+plot_decision_regions_custom(fullnp_bd4, title = "Kernel width = 0.4")
+#%%
+
+fullnp_bd6 = FullNPOneRegion(bandwidth_2d = 0.6, bandwidth_1d = 0.6)
+fullnp_bd6.fit_method(
+    in_sample_alpha_benign = in_sample_alpha_benign,
+    in_sample_alpha_attack=in_sample_alpha_attack,
+    in_sample_beta_benign = in_sample_beta_benign,
+    in_sample_beta_attack=in_sample_beta_attack, Y = 1, c_m = 1, c_n = 1e-6, c_a = 20, verbose=True
+)
+
+plot_decision_regions_custom(fullnp_bd6, title = "Kernel width = 0.6")
+
+#%%
+
+fullnp_bd8 = FullNPOneRegion(bandwidth_2d = 0.8, bandwidth_1d = 0.8)
+fullnp_bd8.fit_method(
+    in_sample_alpha_benign = in_sample_alpha_benign,
+    in_sample_alpha_attack=in_sample_alpha_attack,
+    in_sample_beta_benign = in_sample_beta_benign,
+    in_sample_beta_attack=in_sample_beta_attack, Y = 1, c_m = 1, c_n = 1e-6, c_a = 20, verbose=True
+)
+
+plot_decision_regions_custom(fullnp_bd8, title = "Kernel width = 0.8")
+
+#%%
+
+fullnp_bd12 = FullNPOneRegion(bandwidth_2d = 1.2, bandwidth_1d = 1.2)
+fullnp_bd12.fit_method(
+    in_sample_alpha_benign = in_sample_alpha_benign,
+    in_sample_alpha_attack=in_sample_alpha_attack,
+    in_sample_beta_benign = in_sample_beta_benign,
+    in_sample_beta_attack=in_sample_beta_attack, Y = 1, c_m = 1, c_n = 1e-6, c_a = 20, verbose=True
+)
+
+plot_decision_regions_custom(fullnp_bd12, title = "Kernel width = 1.2")
+
+
 # %%
 print(fullnp.get_use_two_monitor_prob())
 
